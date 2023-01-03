@@ -13,7 +13,7 @@ const Input: FC<Props> = ({ placeholder, onChange, value }) => {
     <View>
       <TextInput
         defaultValue={value}
-        onChangeText={e => onChange(e)}
+        onChangeText={text => onChange(text)}
         style={[styles.input, styles.elevation]}
         placeholder={placeholder}
       />

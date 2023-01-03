@@ -2,10 +2,10 @@ import Svg, { Rect, Path } from 'react-native-svg';
 import React, { FC } from 'react';
 
 type Props = {
-  isDone: boolean;
+  color: string;
 };
 
-const Checkbox: FC<Props> = ({ isDone }) => {
+const Checkbox: FC<Props> = ({ color }) => {
   return (
     <Svg width={20} height={20} viewBox="0 0 20 20" fill="none">
       <Rect
@@ -14,7 +14,7 @@ const Checkbox: FC<Props> = ({ isDone }) => {
         width={18}
         height={18}
         rx={3}
-        fill={isDone ? '#222F3E' : '#fff'}
+        fill={color}
         stroke="#222F3E"
         strokeWidth={2}
       />

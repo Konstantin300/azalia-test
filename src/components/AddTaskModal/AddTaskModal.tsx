@@ -8,11 +8,17 @@ import Button from '../Button';
 type Props = {
   visible: boolean;
   setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
-  onAddTask: (arg0: string) => void;
+  onAddTask: (taskTitle: string) => void;
 };
 
 const AddTaskModal: FC<Props> = ({ visible, setIsModalVisible, onAddTask }) => {
   const [taskTitle, setTaskTitle] = useState('');
+  const isTaskTitle = !!taskTitle;
+
+  const handleAddTask = () => {
+    onAddTask(taskTitle);
+    setTaskTitle('');
+  };
 
   return (
     <Modal animationType="slide" visible={visible}>
@@ -29,13 +35,10 @@ const AddTaskModal: FC<Props> = ({ visible, setIsModalVisible, onAddTask }) => {
           value={taskTitle}
         />
         <Button
-          disabled={taskTitle === ''}
-          customStyles={taskTitle === '' && styles.disabledButton}
+          disabled={isTaskTitle}
+          customStyles={isTaskTitle && styles.disabledButton}
           title="Добавить"
-          onPress={() => {
-            onAddTask(taskTitle);
-            setTaskTitle('');
-          }}
+          onPress={handleAddTask}
         />
       </View>
     </Modal>

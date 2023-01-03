@@ -16,7 +16,7 @@ const Task: FC<Props> = ({ title, isDone, onPress }) => {
       activeOpacity={0.7}
       onPress={onPress}
       style={[styles.container, styles.elevation]}>
-      <Checkbox isDone={isDone} />
+      <Checkbox color={isDone ? '#222F3E' : '#fff'} />
       <Text style={isDone ? styles.taskDone : styles.taskTitle}>{title}</Text>
     </TouchableOpacity>
   );
